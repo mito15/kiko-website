@@ -6,8 +6,8 @@ app.set('view engine', 'pug')
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'Hello there!' })
-})
+  res.render('index', { title: 'Hey', message: 'Hello there!' });
+});
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {

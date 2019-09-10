@@ -31,12 +31,95 @@ html(lang="ja")
       })(document);
     link(rel="icon" href="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fkiko_icon.png?v=1567937815718")
     title 屋外照明・屋内照明・LED照明・光学薄膜技術の横浜機工
-    //
-      Bootstrap core JavaScript
-      ==================================================
-    // Placed at the end of the document so the pages load faster
+    // Bootstrap core JavaScript
     script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
   body
+    nav.navbar.navbar-expand-lg.navbar-dark.fixed-top.shadow
+      a.navbar-brand(href="index.html")
+        .row.align-items-center
+          .align-middle(style="width: 70px; \
+          height: 35px;\
+          margin-top: 3px;\
+          background-image: \
+          url(https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fkiko_top.svg?v=1565942291194); \
+          background-size: 100% 100%;")
+          .align-middle
+            | 横浜機工株式会社
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      #navbar.collapse.navbar-collapse.justify-content-end
+        ul.navbar-nav.align-items-center
+          //
+            <li class="nav-item active ml-3">
+            <a class="nav-link" href="../index.html">トップ</a>
+            </li>
+          li.nav-item.ml-3
+            .dropdown
+              a#dropdown-company.nav-link.dropdown-toggle.text-center(href="company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 会社案内
+              .dropdown-menu(aria-labelledby="dropdown-company")
+                a.dropdown-item(href="company.html") 社長挨拶・会社概要
+                // <a class="dropdown-item" href="#">生産品目・試験装置</a>
+                a.dropdown-item(href="#") 沿革
+                a.dropdown-item(href="#") アクセスマップ
+          li.nav-item.ml-3
+            a.nav-link(href="#") 事業紹介
+          li.nav-item.ml-3
+            a.nav-link(href="#") 製造設備と技術
+          li.nav-item.ml-3
+            a.nav-link(href="#") 環境・品質
+          li.nav-item.ml-3
+            a.nav-link(href="#") 私たちの活動
+          li.nav-item.dropdown.ml-3
+            a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") お問い合わせ
+            .dropdown-menu.dropdown-menu-right(aria-labelledby="dropdown01")
+              a.dropdown-item(href="#") 採用情報（マイナビ）
+              a.dropdown-item(href="#") ビジネス
+          li.nav-item.ml-3
+            a.nav-link(href="https://www.nhkspg.co.jp/")
+              img(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fnhk-logo.png?v=1567427045003" alt="NHK" width="45px" height="27px")
     block content
+    footer
+      .py-6.pt-5.bg-light.site-map
+        .container
+          .row.text-left
+            .col-md-3.col-sm-6.ml-auto
+              h5.text-dark 会社案内
+              ul.list-unstyled.mt-4
+                li
+                  a(href="#") 社長挨拶・会社概要
+                li
+                  a(href="#") 生産品目・試験装置
+                li
+                  a(href="#") 沿革
+                li
+                  a(href="#") アクセスマップ
+            .col-md-2.col-sm-6
+              h5.text-dark 事業紹介
+              ul.list-unstyled.mt-4
+                li
+                  a(href="#") OEM事業
+                li
+                  a(href="#") **事業
+            .col-md-3.col-sm-6
+              h5.text-dark 製造設備と技術
+              ul.list-unstyled.mt-4
+                li
+                  a(href="#") 製造設備
+                li
+                  a(href="#") 技術
+                li
+                  a(href="#") 製品紹介
+            .col-md-3.col-sm-6
+              h5.text-dark 私たちの活動
+              ul.list-unstyled.mt-4
+                li
+                  a(href="#") 一年の予定
+                li
+                  a(href="#") 健康経営
+                li
+                  a(href="#") 環境・品質・安全
+      #credit.container-fluid.shadow
+        small
+          | Copyright (C) 2019 横浜機工株式会社 All Rights Reserved.

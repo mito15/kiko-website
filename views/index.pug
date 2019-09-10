@@ -1,183 +1,100 @@
-nav.navbar.navbar-expand-lg.navbar-dark.fixed-top.shadow
-  a.navbar-brand(href="../index.html")
-    .row.align-items-center
-      .align-middle(style="width: 70px; \
-      height: 35px;\
-      margin-top: 3px;\
-      background-image: \
-      url(https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fkiko_top.svg?v=1565942291194); \
-      background-size: 100% 100%;")
-      .align-middle
-        | 横浜機工株式会社
-  button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation")
-    span.navbar-toggler-icon
-  #navbar.collapse.navbar-collapse.justify-content-end
-    ul.navbar-nav.align-items-center
-      //
-        <li class="nav-item active ml-3">
-        <a class="nav-link" href="../index.html">トップ</a>
-        </li>
-      li.nav-item.ml-3
-        .dropdown
-          a#dropdown-company.nav-link.dropdown-toggle.text-center(href="company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 会社案内
-          .dropdown-menu(aria-labelledby="dropdown-company")
-            a.dropdown-item(href="company.html") 社長挨拶・会社概要
-            // <a class="dropdown-item" href="#">生産品目・試験装置</a>
-            a.dropdown-item(href="#") 沿革
-            a.dropdown-item(href="#") アクセスマップ
-      li.nav-item.ml-3
-        a.nav-link(href="#") 事業紹介
-      li.nav-item.ml-3
-        a.nav-link(href="#") 製造設備と技術
-      li.nav-item.ml-3
-        a.nav-link(href="#") 環境・品質
-      li.nav-item.ml-3
-        a.nav-link(href="#") 私たちの活動
-      li.nav-item.dropdown.ml-3
-        a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") お問い合わせ
-        .dropdown-menu.dropdown-menu-right(aria-labelledby="dropdown01")
-          a.dropdown-item(href="#") 採用情報（マイナビ）
-          a.dropdown-item(href="#") ビジネス
-      li.nav-item.ml-3
-        a.nav-link(href="https://www.nhkspg.co.jp/")
-          img(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fnhk-logo.png?v=1567427045003" alt="NHK" width="45px" height="27px")
-header.jumbotron.jumbotron-fluid.shadow
-  .container
-    h1
-      | 信頼と創造で
-      br
-      | 豊かさを
-    .header-sentence
-      p
-        | 地球環境への配慮とお客様の品質・コスト・納期の満足にお応えしながら、新たな技術革新と新商品に挑戦しております。
-      // <a class="btn btn-primary btn-xl mb-5" href="#services">詳しく見る</a>
-section.py-5.shadow
-  .container
-    .mx-auto.text-center
-      span.text-muted News
-      h2 お知らせ
-    ul.list-group.w-75.text-left.mt-5.mx-auto
-      li.list-group-item
-        span.date 2019-02-28
-        span.category.badge.badge-primary お知らせ
-        a(href="#") 「健康経営優良法人2019（中小規模法人部門）」認定
-      li.list-group-item
-        span.date 2019-01-18
-        span.category.badge.badge-primary お知らせ
-        a(href="#") 第2回横浜健康経営認証クラスAAAに認証されました
-      li.list-group-item
-        span.date 2018-08-28
-        span.category.badge.badge-primary お知らせ
-        a(href="#") 「平成30年健康優良企業（健保連神奈川連合会）認定
-// Portfolio Grid
-section#portfolio.bg-light.page-section.py-5
-  .container
-    .mx-auto.text-center.mt-5
-      span.text-muted Works
-      h2 事業紹介
-    .row.mt-5
-      .col-md-6.col-sm-6.portfolio-item
-        .card.mx-5
-          img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
-          .card-body
-            h5.card-title 事業
-            p.card-text テキスト
-            a.btn.btn-primary(href="#") ボタン
-      .col-md-6.col-sm-6.portfolio-item
-        .card.mx-5
-          img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
-          .card-body
-            h5.card-title 事業
-            p.card-text テキスト
-            a.btn.btn-primary(href="#") ボタン
-// Portfolio Grid
-section.page-section.py-5.shadow
-  .container
-    .mx-auto.text-center.mt-5
-      span.text-muted Works
-      h2 製造設備
-    .row.mt-5
-      .col-md-4.col-sm-6.portfolio-item
-        .card.mx-3
-          img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
-          .card-body
-            h5.card-title 設備
-            p.card-text テキスト
-            a.btn.btn-primary(href="#") ボタン
-      .col-md-4.col-sm-6.portfolio-item
-        .card.mx-3
-          img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
-          .card-body
-            h5.card-title 設備
-            p.card-text テキスト
-            a.btn.btn-primary(href="#") ボタン
-      .col-md-4.col-sm-6.portfolio-item
-        .card.mx-3
-          img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
-          .card-body
-            h5.card-title 設備
-            p.card-text テキスト
-            a.btn.btn-primary(href="#") ボタン
-section.page-section.py-5
-  .container
-    .mx-auto.text-center.mt-5
-      span.text-muted Works
-      h2 私たちの活動
-    .row.mt-5
-      #example-2.carousel.slide(data-ride="carousel")
-        .carousel-inner
-          .carousel-item.active
-            img(src="slide1.png" alt="First slide")
-          .carousel-item
-            img(src="slide2.png" alt="Second slide")
-          .carousel-item
-            img(src="slide3.png" alt="Third slide")
-          a.carousel-control-prev(href="#example-2" role="button" data-slide="prev")
-            span.carousel-control-prev-icon(aria-hidden="true")
-            span.sr-only Previous
-          a.carousel-control-next(href="#example-2" role="button" data-slide="next")
-            span.carousel-control-next-icon(aria-hidden="true")
-            span.sr-only Next
-footer
-  .py-6.pt-5.bg-light.site-map
+extends layout
+
+block content
+  header.jumbotron.jumbotron-fluid.shadow
     .container
-      .row.text-left
-        .col-md-3.col-sm-6.ml-auto
-          h5.text-dark 会社案内
-          ul.list-unstyled.mt-4
-            li
-              a(href="#") 社長挨拶・会社概要
-            li
-              a(href="#") 生産品目・試験装置
-            li
-              a(href="#") 沿革
-            li
-              a(href="#") アクセスマップ
-        .col-md-2.col-sm-6
-          h5.text-dark 事業紹介
-          ul.list-unstyled.mt-4
-            li
-              a(href="#") OEM事業
-            li
-              a(href="#") **事業
-        .col-md-3.col-sm-6
-          h5.text-dark 製造設備と技術
-          ul.list-unstyled.mt-4
-            li
-              a(href="#") 製造設備
-            li
-              a(href="#") 技術
-            li
-              a(href="#") 製品紹介
-        .col-md-3.col-sm-6
-          h5.text-dark 私たちの活動
-          ul.list-unstyled.mt-4
-            li
-              a(href="#") 一年の予定
-            li
-              a(href="#") 健康経営
-            li
-              a(href="#") 環境・品質・安全
-  #credit.container-fluid.shadow
-    small
-      | Copyright (C) 2019 横浜機工株式会社 All Rights Reserved.
+      h1
+        | 信頼と創造で
+        br
+        | 豊かさを
+      .header-sentence
+        p
+          | 地球環境への配慮とお客様の品質・コスト・納期の満足にお応えしながら、新たな技術革新と新商品に挑戦しております。
+        // <a class="btn btn-primary btn-xl mb-5" href="#services">詳しく見る</a>
+  section.py-5.shadow
+    .container
+      .mx-auto.text-center
+        span.text-muted News
+        h2 お知らせ
+      ul.list-group.w-75.text-left.mt-5.mx-auto
+        li.list-group-item
+          span.date 2019-02-28
+          span.category.badge.badge-primary お知らせ
+          a(href="#") 「健康経営優良法人2019（中小規模法人部門）」認定
+        li.list-group-item
+          span.date 2019-01-18
+          span.category.badge.badge-primary お知らせ
+          a(href="#") 第2回横浜健康経営認証クラスAAAに認証されました
+        li.list-group-item
+          span.date 2018-08-28
+          span.category.badge.badge-primary お知らせ
+          a(href="#") 「平成30年健康優良企業（健保連神奈川連合会）認定
+  // Portfolio Grid
+  section#portfolio.bg-light.page-section.py-5
+    .container
+      .mx-auto.text-center.mt-5
+        span.text-muted Works
+        h2 事業紹介
+      .row.mt-5
+        .col-md-6.col-sm-6.portfolio-item
+          .card.mx-5
+            img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
+            .card-body
+              h5.card-title 事業
+              p.card-text テキスト
+              a.btn.btn-primary(href="#") ボタン
+        .col-md-6.col-sm-6.portfolio-item
+          .card.mx-5
+            img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
+            .card-body
+              h5.card-title 事業
+              p.card-text テキスト
+              a.btn.btn-primary(href="#") ボタン
+  // Portfolio Grid
+  section.page-section.py-5.shadow
+    .container
+      .mx-auto.text-center.mt-5
+        span.text-muted Works
+        h2 製造設備
+      .row.mt-5
+        .col-md-4.col-sm-6.portfolio-item
+          .card.mx-3
+            img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
+            .card-body
+              h5.card-title 設備
+              p.card-text テキスト
+              a.btn.btn-primary(href="#") ボタン
+        .col-md-4.col-sm-6.portfolio-item
+          .card.mx-3
+            img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
+            .card-body
+              h5.card-title 設備
+              p.card-text テキスト
+              a.btn.btn-primary(href="#") ボタン
+        .col-md-4.col-sm-6.portfolio-item
+          .card.mx-3
+            img.card-img-top(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fplaceholder.png?v=1566172696090" alt="カードの画像")
+            .card-body
+              h5.card-title 設備
+              p.card-text テキスト
+              a.btn.btn-primary(href="#") ボタン
+  section.page-section.py-5
+    .container
+      .mx-auto.text-center.mt-5
+        span.text-muted Works
+        h2 私たちの活動
+      .row.mt-5
+        #example-2.carousel.slide(data-ride="carousel")
+          .carousel-inner
+            .carousel-item.active
+              img(src="slide1.png" alt="First slide")
+            .carousel-item
+              img(src="slide2.png" alt="Second slide")
+            .carousel-item
+              img(src="slide3.png" alt="Third slide")
+            a.carousel-control-prev(href="#example-2" role="button" data-slide="prev")
+              span.carousel-control-prev-icon(aria-hidden="true")
+              span.sr-only Previous
+            a.carousel-control-next(href="#example-2" role="button" data-slide="next")
+              span.carousel-control-next-icon(aria-hidden="true")
+              span.sr-only Next

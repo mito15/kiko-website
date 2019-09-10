@@ -9,6 +9,14 @@ app.get('/', function (req, res) {
   res.render('index', { title: 'Hey', message: 'Hello there!' });
 });
 
+app.get('/index.html', function (req, res) {
+  res.render('index', { title: 'Hey', message: 'Hello there!' });
+});
+
+app.get('/company.html', function (req, res) {
+  res.render('index', { title: 'Hey', message: 'Hello there!' });
+});
+
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);

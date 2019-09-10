@@ -1,82 +1,75 @@
-/* styles */
-/* called by your view template */
-
-/* You might want to try something fancier: */
-/* less: http://lesscss.org/ */
-
-* {
-  box-sizing: border-box;
+.navbar {
+  background-color: #149;/*#0071BC;*/
+  border-color: #3e6962;
 }
 
-body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 25px;
+header.jumbotron {
+  background: url("https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2FCIMG3021.jpg?v=1567596252586");
+  background-position: center center;
+  background-size: cover;
+  color: #fff;
+  margin-top: 60px;
+  padding-top: 100px;
 }
 
 h1 {
-  font-weight: bold;
-  color: pink;
+  font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 5em;
+  /* font-family: ro-nikkatsu-sei-kai-std, serif; */
 }
 
-.bold {
-  font-weight: bold;
+header .header-sentence {
+  font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  margin-left: 42%;
+  margin-top: 3%;
+  /*margin-left: 10px;*/
+  width: 58%;
+  font-size: 2em;
 }
 
-p {
-  max-width: 600px;
+footer .site-map {
+  font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding-bottom: 50px;
 }
 
-form {
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: cyan;
-  display: inline-block;
-  width: 100%;
-  max-width: 340px;
-  border-radius: 3px;
+footer #credit {
+  font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  padding: 10px;
+  color: #FFFFFF;
+  background: #149;
 }
 
-input {
-  display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 16px;
+footer a {
+  color: rgba(0, 0, 0, 0.7);
+  transition: all 0.25s ease-out; 
 }
 
-button {
-  font-size: 16px;
-  border-radius: 3px;
-  background-color: lightgrey;
-  border: 1px solid grey;
-  box-shadow: 2px 2px teal;
-  cursor: pointer;
+footer a:hover {
+  color: #000000; 
 }
 
-button:hover {
-  background-color: yellow;
+nav {
+  font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
-button:active {
-  box-shadow: none;
+nav .navbar-brand {
+  font-size: 28px;
 }
 
-li {
-  margin-bottom: 5px;
-}
-
-footer {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 1px solid lightgrey;
-}
-
-footer > a {
-  color: #BBBBBB;
-}
-
-.nicejob {
-  text-decoration: line-through;
+h2 {
+  font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  /* font-family: ro-nikkatsu-sei-kai-std, serif; */
 }

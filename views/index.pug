@@ -12,9 +12,7 @@ block content
           
   section.shadow
     .container
-      .mx-auto.text-center
-        span.text-muted News
-        h2 お知らせ
+      +title("News", "お知らせ")
       ul.list-group.w-75.text-left.mt-5.mx-auto
         li.list-group-item
           span.date 2019-02-28
@@ -50,9 +48,7 @@ block content
 
   section.page-section.shadow
     .container
-      .mx-auto.text-center.mt-5
-        span.text-muted Works
-        h2 製造設備
+      +title("Gallery", "製造設備")  
       .row.mt-5
         .col-md-4.col-sm-6.portfolio-item
           .card.mx-3
@@ -81,6 +77,7 @@ block content
       .mx-auto.text-center.mt-5
         span.text-muted Works
         h2 私たちの活動
+      +title("About us", "私たちの活動")
       .row.mt-5
         #example-2.carousel.slide(data-ride="carousel")
           .carousel-inner

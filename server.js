@@ -14,7 +14,7 @@ app.get('/index.html', function (req, res) {
 });
 
 app.get('/company.html', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'Hello there!' });
+  res.render('company', {});
 });
 
 // listen for requests :)

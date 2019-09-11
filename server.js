@@ -17,8 +17,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/login', function (req, res) {
-  console.log(req.body);
-  res.send({ authorized: false });
+  res.redirect('/');
 });
 
 // http://expressjs.com/en/starter/static-files.html

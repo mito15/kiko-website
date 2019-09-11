@@ -1,6 +1,12 @@
 var express = require('express');
 var bcrypt = require('bcryptjs');
 
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+ 
+const adapter = new FileSync('db.json')
+const db = low(adapter)
+
 var app = express();
 app.set('view engine', 'pug')
 
@@ -38,6 +44,9 @@ app.get('/aboutus', function (req, res) {
 app.get('/login', function (req, res) {
   res.render('login', { title: 'login' });
 });
+
+db.defaults({ users: [{id: 'admin', password_hash}] })
+  .write()
 
 app.post('/api/login', function (req, res) {
     bcrypt.hash(req.body.password, 10, function (err, hash) {

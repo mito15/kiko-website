@@ -13,9 +13,6 @@ app.set('view engine', 'pug');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var flash = require('connect-flash');
-app.use(flash());
-
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
@@ -77,9 +74,6 @@ app.get('/aboutus', function (req, res) {
 app.get('/login', function (req, res) {
   res.render('login', { title: 'login' });
 });
-
-db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI./Lo.BeZQiQmtSffW5Sq/1gRkrfR8kcy'}] })
-  .write()
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {

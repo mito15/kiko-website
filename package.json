@@ -13,7 +13,8 @@
     "express": "^4.16.4",
     "pug": "^2.0.3",
     "bcryptjs": "^2.4.3",
-    "lowdb": "^1.0.0"
+    "lowdb": "^1.0.0",
+    "passport": "^0.4.0"
   },
   "engines": {
     "node": "8.x"

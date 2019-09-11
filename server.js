@@ -7,6 +7,9 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
+db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI./Lo.BeZQiQmtSffW5Sq/1gRkrfR8kcy'}] })
+  .write()
+
 var app = express();
 app.set('view engine', 'pug');
 
@@ -18,26 +21,33 @@ var passport = require('passport')
 
 passport.use(new LocalStrategy({
     usernameField: 'email',
-    passwordField: 'passwd'
+    passwordField: 'pass'
   },
   function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
+      console.log('function');
       if (err) { return done(err); }
       if (!user) {
+        console.log('user');
         return done(null, false, { message: 'ユーザーIDが間違っています。' });
       }
       if (!user.validPassword(password)) {
+        console.log('pass');
         return done(null, false, { message: 'パスワードが間違っています。' });
       }
+      console.log('done');
       return done(null, user);
     });
   }
 ));
 
 app.post('/login',
-  passport.authenticate('local', { successRedirect: '/company',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
+  passport.authenticate('local'),
+  function(req, res) {
+    // 認証に施工すると、この関数が呼び出される。
+    // 認証されたユーザーは `req.user` に含まれている。
+    res.redirect('/company');
+  }
 );
 
 // http://expressjs.com/en/starter/static-files.html

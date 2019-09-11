@@ -49,18 +49,19 @@ db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI
   .write()
 
 app.post('/api/login', function (req, res) {
-    bcrypt.hash(req.body.password, 8, function (err, hash) {
-      var password_hash = db.get('users')
-        .find({ id: 'admin' })
-        .value();
-      if (password_hash) {
-        bcrypt.compare(req.body.password, password_hash, function (err, r) {
-          res.send({ authorized: r });
-        });
-      } else {
-        res.send({ authorized: false });
-      }
-    });
+  console.log(req);
+  bcrypt.hash(req.body.password, 8, function (err, hash) {
+    var password_hash = db.get('users')
+      .find({ id: 'admin' })
+      .value();
+    if (password_hash) {
+      bcrypt.compare(req.body.password, password_hash, function (err, r) {
+        res.send({ authorized: r });
+      });
+    } else {
+      res.send({ authorized: false });
+    }
+  });
 });
 
 // listen for requests :)

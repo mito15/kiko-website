@@ -3,9 +3,14 @@ html(lang="ja")
   head
     meta(charset="utf-8")
     title= title
-    script(src="https://fb.me/react-0.13.3.js")
-    script(src="https://fb.me/JSXTransformer-0.13.3.js")
-    script(src="https://code.jquery.com/jquery-2.1.3.min.js")
   body#body
-    script(type="text/jsx", src="js/login.jsx")
-    p nyan
+    form(action="/login/api", method="post")
+    div
+      lavel ユーザーID:
+      input(type="text", name="username")
+    div
+      label パスワード：
+      input(type="password", name="password")
+    div
+      input(type="submit", value="ログイン")
+      

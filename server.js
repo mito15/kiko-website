@@ -1,13 +1,13 @@
 var express = require('express');
 
-// const low = require('lowdb')
-// const FileSync = require('lowdb/adapters/FileSync')
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
  
-// const adapter = new FileSync('db.json')
-// const db = low(adapter)
+const adapter = new FileSync('db.json')
+const db = low(adapter)
 
-// db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI./Lo.BeZQiQmtSffW5Sq/1gRkrfR8kcy'}] })
-//   .write()
+db.defaults({ news: [{date: '2019/4/11', lavel: 'お知らせ', content: ''}] })
+  .write()
 
 var app = express();
 app.set('view engine', 'pug');

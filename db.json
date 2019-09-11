@@ -1,0 +1,9 @@
+{
+  "users": [
+    {
+      "id": "admin",
+      "password_hash": "$2a$08$xwqhrh5lSq80VINWFkLRI./Lo.BeZQiQmtSffW5Sq/1gRkrfR8kcy"
+    }
+  ],
+  "news": []
+}

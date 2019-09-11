@@ -37,6 +37,10 @@ app.get('/aboutus.html', function (req, res) {
   res.render('aboutus', { title: '私たちの活動|屋外照明・屋内照明・LED照明・光学薄膜技術の横浜機工' });
 });
 
+app.get('/login', function (req, res) {
+  res.render('login', { title: 'login' });
+});
+
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);

@@ -45,30 +45,21 @@ app.get('/login', function (req, res) {
   res.render('login', { title: 'login' });
 });
 
-db.defaults({ users: [{id: 'admin', password_hash}] })
+db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI./Lo.BeZQiQmtSffW5Sq/1gRkrfR8kcy'}] })
   .write()
 
 app.post('/api/login', function (req, res) {
-    bcrypt.hash(req.body.password, 10, function (err, hash) {
-        pg.connect("http://postgres:test@localhost:5432/postgres", function (err, client) {
-            var query = client.query("SELECT * FROM REGISTERED_USERS WHERE USER_NAME = $1;", [req.body.userID]);
-
-            var userInfo = null;
-            query.on('row', function (row) {
-                // USER_NAME がユニークな前提
-                userInfo = row;
-            });
-            query.on('end', function (row, err) {
-                if (userInfo) {
-                    bcrypt.compare(req.body.password, userInfo.user_password_hash, function (err, r) {
-                        res.send({ authorized: r });
-                    });
-                }
-                else {
-                    res.send({ authorized: false });
-                }
-            });
+    bcrypt.hash(req.body.password, 8, function (err, hash) {
+      var password_hash = db.get('users')
+        .find({ id: 'admin' })
+        .value();
+      if (password_hash) {
+        bcrypt.compare(req.body.password, password_hash, function (err, r) {
+          res.send({ authorized: r });
         });
+      } else {
+        res.send({ authorized: false });
+      }
     });
 });
 

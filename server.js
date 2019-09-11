@@ -16,39 +16,10 @@ app.set('view engine', 'pug');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
-
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'pass'
-  },
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
-      console.log('function');
-      if (err) { return done(err); }
-      if (!user) {
-        console.log('user');
-        return done(null, false, { message: 'ユーザーIDが間違っています。' });
-      }
-      if (!user.validPassword(password)) {
-        console.log('pass');
-        return done(null, false, { message: 'パスワードが間違っています。' });
-      }
-      console.log('done');
-      return done(null, user);
-    });
-  }
-));
-
-app.post('/login',
-  passport.authenticate('local'),
-  function(req, res) {
-    // 認証に施工すると、この関数が呼び出される。
-    // 認証されたユーザーは `req.user` に含まれている。
-    res.redirect('/company');
-  }
-);
+app.post('/login', function (req, res) {
+  console.log(req.body);
+  res.send({ authorized: false });
+});
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));

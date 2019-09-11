@@ -1,4 +1,6 @@
 var express = require('express');
+var bcrypt = require('bcryptjs');
+
 var app = express();
 app.set('view engine', 'pug')
 
@@ -39,6 +41,30 @@ app.get('/aboutus.html', function (req, res) {
 
 app.get('/login', function (req, res) {
   res.render('login', { title: 'login' });
+});
+
+app.post('/api/login', function (req, res) {
+    bcrypt.hash(req.body.password, 10, function (err, hash) {
+        pg.connect("http://postgres:test@localhost:5432/postgres", function (err, client) {
+            var query = client.query("SELECT * FROM REGISTERED_USERS WHERE USER_NAME = $1;", [req.body.userID]);
+
+            var userInfo = null;
+            query.on('row', function (row) {
+                // USER_NAME がユニークな前提
+                userInfo = row;
+            });
+            query.on('end', function (row, err) {
+                if (userInfo) {
+                    bcrypt.compare(req.body.password, userInfo.user_password_hash, function (err, r) {
+                        res.send({ authorized: r });
+                    });
+                }
+                else {
+                    res.send({ authorized: false });
+                }
+            });
+        });
+    });
 });
 
 // listen for requests :)

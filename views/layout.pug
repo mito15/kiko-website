@@ -3,6 +3,31 @@ mixin title(en, ja)
     span.text-muted #{en}
     h2 #{ja}
 
+-
+  var site_map = [
+    {
+      title : '会社案内',
+      items : [
+        {
+          title : '社長あいさつ',
+          url : 'company'
+        },
+        {
+          title : '会社概要',
+          url : 'company#company'
+        },
+        {
+          title : '沿革',
+          url : 'company#history'
+        },
+        {
+          title : 'アクセス',
+          url : 'company#access'
+        }
+      ]
+    },
+  ];
+
 doctype html
 html(lang="ja")
   head
@@ -64,23 +89,23 @@ html(lang="ja")
             .dropdown
               a#dropdown-company.nav-link.dropdown-toggle.text-center(href="company" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 会社案内
               .dropdown-menu(aria-labelledby="dropdown-company")
-                a.dropdown-item(href="company.html") 社長挨拶
-                a.dropdown-item(href="company.html#company") 会社概要
-                a.dropdown-item(href="company.html#histroy") 沿革
-                a.dropdown-item(href="company.html#access") アクセス
+                a.dropdown-item(href="company") 社長挨拶
+                a.dropdown-item(href="company#company") 会社概要
+                a.dropdown-item(href="company#histroy") 沿革
+                a.dropdown-item(href="company#access") アクセス
           li.nav-item.ml-3
-            a.nav-link(href="works.html") 事業紹介
+            a.nav-link(href="works") 事業紹介
           li.nav-item.ml-3
-            a.nav-link(href="gallery.html") 製造設備と技術
+            a.nav-link(href="gallery") 製造設備と技術
           li.nav-item.ml-3
-            a.nav-link(href="quality.html") 環境・品質
+            a.nav-link(href="quality") 環境・品質
           li.nav-item.ml-3
-            a.nav-link(href="aboutus.html") 私たちの活動
+            a.nav-link(href="aboutus") 私たちの活動
           li.nav-item.dropdown.ml-3
             a.nav-link.dropdown-toggle(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") お問い合わせ
             .dropdown-menu.dropdown-menu-right(aria-labelledby="dropdown01")
               a.dropdown-item(href="#") 採用情報（マイナビ）
-              a.dropdown-item(href="contact.html") お問い合わせ
+              a.dropdown-item(href="contact") お問い合わせ
           li.nav-item.ml-3
             a.nav-link(href="https://www.nhkspg.co.jp/")
               img(src="https://cdn.glitch.com/2e2fbabc-6457-418f-96bb-4a6bef58637b%2Fnhk-logo.png?v=1567427045003" alt="NHK" width="45px" height="27px")
@@ -93,36 +118,38 @@ html(lang="ja")
               h5.text-dark 会社案内
               ul.list-unstyled.mt-4
                 li
-                  a(href="#") 社長挨拶・会社概要
+                  a(href="company") 社長挨拶
                 li
-                  a(href="#") 沿革
+                  a(href="company#company") 会社概要
                 li
-                  a(href="#") アクセスマップ
+                  a(href="company#histroy") 沿革
+                li
+                  a(href="company#access") アクセス
             .col-md-2.col-sm-6
               h5.text-dark 事業紹介
               ul.list-unstyled.mt-4
                 li
-                  a(href="#") OEM事業
+                  a(href="works") OEM事業
                 li
-                  a(href="#") **事業
+                  a(href="works") **事業
             .col-md-3.col-sm-6
               h5.text-dark 製造設備と技術
               ul.list-unstyled.mt-4
                 li
-                  a(href="#") 製造設備
+                  a(href="gallery") 製造設備
                 li
-                  a(href="#") 技術
+                  a(href="gallery") 技術
                 li
-                  a(href="#") 製品紹介
+                  a(href="gallery") 製品紹介
             .col-md-3.col-sm-6
               h5.text-dark 私たちの活動
               ul.list-unstyled.mt-4
                 li
-                  a(href="#") 一年の予定
+                  a(href="aboutus") 一年の予定
                 li
-                  a(href="#") 健康経営
+                  a(href="aboutus") 健康経営
                 li
-                  a(href="#") 環境・品質・安全
+                  a(href="aboutus") 環境・品質・安全
       #credit.container-fluid.shadow
         small
           | Copyright (C) 2019 横浜機工株式会社 All Rights Reserved.

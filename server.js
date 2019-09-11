@@ -1,27 +1,33 @@
 var express = require('express');
-var bcrypt = require('bcryptjs');
 
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
+// const low = require('lowdb')
+// const FileSync = require('lowdb/adapters/FileSync')
  
-const adapter = new FileSync('db.json')
-const db = low(adapter)
+// const adapter = new FileSync('db.json')
+// const db = low(adapter)
 
-db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI./Lo.BeZQiQmtSffW5Sq/1gRkrfR8kcy'}] })
-  .write()
+// db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI./Lo.BeZQiQmtSffW5Sq/1gRkrfR8kcy'}] })
+//   .write()
 
 var app = express();
 app.set('view engine', 'pug');
 
+// http://expressjs.com/en/starter/static-files.html
+app.use(express.static('public'));
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/login', function (req, res) {
-  res.redirect('/');
+var basicAuth = require('basic-auth-connect');
+var adminApp  = express.Router();
+
+adminApp.use(basicAuth('admin', 'password'));
+
+adminApp.get('/', function(req, res) {
+    res.render('edit', { title: 'edit'});
 });
 
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+app.use('/edit', adminApp);
 
 app.get('/', function (req, res) {
   res.render('index', { title: '屋外照明・屋内照明・LED照明・光学薄膜技術の横浜機工' });

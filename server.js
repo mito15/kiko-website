@@ -7,36 +7,35 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
-var passport = require('passport');
-app.use(passport.initialize());
-
-var LocalStrategy = require('passport-local').Strategy;
-passport.use(new LocalStrategy(function(username, password, done){
-  bcrypt.hash(req.body.password, 8, function (err, hash) {
-    var password_hash = db.get('users')
-      .find({ id: 'admin' })
-      .value();
-    if (password_hash) {
-      bcrypt.compare(req.body.password, password_hash, function (err, r) {
-        res.send({ authorized: r });
-      });
-    } else {
-      res.send({ authorized: false });
-    }
-  });
-    if (なんらかのエラー) {
-        return done(エラー内容);
-    }
-    else if (失敗) {
-        return done(null, false);
-    }
-    else if (成功) {
-        return done(null, username);
-    }
-}));
-
 var app = express();
-app.set('view engine', 'pug')
+app.set('view engine', 'pug');
+
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'passwd'
+  },
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'ユーザーIDが間違っています。' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'パスワードが間違っています。' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
+app.post('/login',
+  passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
@@ -77,14 +76,7 @@ db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI
   .write()
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true });
-
-app.post('/login',
-    passport.authenticate('local'),
-    function(req, res){
-        // 認証成功するとここが実行される
-    }
-);
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {

@@ -31,11 +31,9 @@ passport.use(new LocalStrategy({
   }
 ));
 
-app.post('/login',
-  passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
-);
+app.post('/login', function (req, res) {
+  console.log('nyao');
+});
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));

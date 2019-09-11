@@ -4,13 +4,8 @@ html(lang="ja")
     meta(charset="utf-8")
     title= title
   body#body
-    form(action="/login", method="post")
-    div
-      lavel ユーザーID:
-      input(type="text", name="username")
-    div
-      label パスワード：
-      input(type="password", name="password")
-    div
-      input(type="submit", value="ログイン")
+    form(method="POST", target="./")
+            input(type="text", name="word" value="")
+            input(type="hidden", name="mode" value="input")
+            input(type="submit", value="送信")
       

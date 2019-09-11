@@ -10,6 +10,12 @@ const db = low(adapter)
 var app = express();
 app.set('view engine', 'pug');
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+
+var flash = require('connect-flash');
+app.use(flash());
+
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
@@ -31,9 +37,11 @@ passport.use(new LocalStrategy({
   }
 ));
 
-app.post('/login', function (req, res) {
-  console.log('nyao');
-});
+app.post('/login',
+  passport.authenticate('local', { successRedirect: '/company',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
@@ -72,9 +80,6 @@ app.get('/login', function (req, res) {
 
 db.defaults({ users: [{id: 'admin', password_hash: '$2a$08$xwqhrh5lSq80VINWFkLRI./Lo.BeZQiQmtSffW5Sq/1gRkrfR8kcy'}] })
   .write()
-
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
